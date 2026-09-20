@@ -1,5 +1,5 @@
 import { StyleSheet, Text, useColorScheme, View } from "react-native";
-import { colors } from '../constants/colors';
+import { colors } from '../../constants/colors';
 
 export default function Index() {
   const colorScheme = useColorScheme();
@@ -8,7 +8,7 @@ export default function Index() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={{ color: theme.text }}>Edit src/app/index.tsx to edit this screen.</Text>
+      <Text style={{ color: theme.text }}>This is settings tab</Text>
     </View>
   );
 }
