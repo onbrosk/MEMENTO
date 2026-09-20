@@ -1,10 +1,8 @@
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
-import { colors } from '../../constants/colors';
+import { useTheme } from "@/hooks/useTheme";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
-  const colorScheme = useColorScheme();
-  console.log(typeof (colors))
-  const theme = colorScheme === "dark" ? colors.dark : colors.light;
+  const theme = useTheme()
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>

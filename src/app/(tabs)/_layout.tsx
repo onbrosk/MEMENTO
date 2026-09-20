@@ -1,7 +1,8 @@
 
-import { Tabs, useColorScheme } from 'expo-router';
-import { colors } from '../../constants/colors';
+import { Tabs } from 'expo-router';
+import { useTheme } from '../../hooks/useTheme';
 export default function TabLayout() {
+  const theme = useTheme
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
       <Tabs.Screen
