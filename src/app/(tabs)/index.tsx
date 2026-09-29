@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import CurentlyReading from "../../components/CurentlyReading";
 import { useTheme } from '../../hooks/useTheme';
 export default function Index() {
   const theme = useTheme();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={{ color: theme.text }}>Edit src/app/index.tsx to edit this screen.</Text>
+      <CurentlyReading />
+
     </View>
   );
 }
@@ -13,7 +15,5 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
