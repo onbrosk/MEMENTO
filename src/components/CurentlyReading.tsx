@@ -4,6 +4,7 @@ import Plus from '../assets/svgs/darkThemed/plus.svg';
 import { useTheme } from '../hooks/useTheme';
 import CustomModal from "./CustomModal";
 import Ripple from "./Ripple";
+import AddingBookMethodsModal from "./AddingBookMethodsModal";
 const CurentlyReading = () => {
   const theme = useTheme()
   const [modalVisible, setModalVisible] = useState(false);
@@ -18,9 +19,7 @@ const CurentlyReading = () => {
           </Ripple>
       </View>
     </View>
-    <CustomModal modalVisible={modalVisible} setModalVisible={setModalVisible}>
-      <Text>This is test</Text>
-    </CustomModal>
+    <AddingBookMethodsModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
     </>
   )
 }
