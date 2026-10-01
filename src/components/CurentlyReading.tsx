@@ -1,24 +1,33 @@
+import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Plus from '../assets/svgs/darkThemed/plus.svg';
 import { useTheme } from '../hooks/useTheme';
+import CustomModal from "./CustomModal";
 import Ripple from "./Ripple";
 const CurentlyReading = () => {
   const theme = useTheme()
-
+  const [modalVisible, setModalVisible] = useState(false);
   return (
+    <>
     <View style={styles.container}>
       <Text style={[styles.header, { color: theme.text }]}>Currently reading</Text>
       <View style={styles.booksNav}>
-          <Ripple style={[styles.card, {backgroundColor: theme.backgroundSecondary}]}>
+          <Ripple  onTap={() => setModalVisible(true)} style={[styles.card, {backgroundColor: theme.backgroundSecondary}]}>
+            
             <Plus color={theme.primary} height={50} width={50}/>
           </Ripple>
       </View>
     </View>
+    <CustomModal modalVisible={modalVisible} setModalVisible={setModalVisible}>
+      <Text>This is test</Text>
+    </CustomModal>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    height: '50%',
     marginTop: 18,
     marginLeft: 20
   },

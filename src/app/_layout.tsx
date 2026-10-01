@@ -7,7 +7,7 @@ export default function Layout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <StatusBar style='auto' />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, presentation: 'modal' }} />
       </Stack>
     </GestureHandlerRootView>
   );
