@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useTheme } from '../hooks/useTheme';
 
 type ModalProps = {
@@ -13,32 +14,39 @@ const CustomModal = ({ modalVisible = false, setModalVisible, children }: ModalP
 
   return (
     <Modal
-      animationType="fade"
+      animationType="slide"
       transparent
       visible={modalVisible}
       onRequestClose={() => setModalVisible(false)}
     >
-      <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+      <GestureHandlerRootView style={styles.gestureRoot}>
         <View style={styles.backdrop}>
-          <TouchableWithoutFeedback>
-            <View style={[ styles.modalContent, { backgroundColor: theme.backgroundSecondary }]}>
-              {children}
-            </View>
-          </TouchableWithoutFeedback>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Close modal"
+            onPress={() => setModalVisible(false)}
+            style={StyleSheet.absoluteFill}
+          />
+          <View style={[styles.modalContent, { backgroundColor: theme.backgroundSecondary }]}>
+            {children}
+          </View>
         </View>
-      </TouchableWithoutFeedback>
+      </GestureHandlerRootView>
     </Modal>
   );
 };
 
 const styles = StyleSheet.create({
+  gestureRoot: {
+    flex: 1,
+  },
   backdrop: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'flex-end',
   },
   modalContent: {
-    height: '50%',
+    height: 'auto',
     backgroundColor: 'white',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
