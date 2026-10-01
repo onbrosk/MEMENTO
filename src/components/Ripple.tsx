@@ -12,7 +12,6 @@ import { scheduleOnRN } from 'react-native-worklets';
 
 interface RippleProps {
   style?: StyleProp<ViewStyle>;
-  contentContainerStyle?: StyleProp<ViewStyle>;
   onTap?: () => void;
   children: React.ReactNode;
 }
@@ -59,7 +58,7 @@ const Ripple: React.FC<RippleProps> = ({ style, onTap, children }) => {
       height: circleRadius * 2,
       borderRadius: circleRadius,
       opacity: rippleOpacity.value,
-      backgroundColor: 'rgba(0,0,0,0.2)',
+      backgroundColor: 'rgba(0,0,0,0.5)',
       position: 'absolute',
       top: 0,
       left: 0,
@@ -74,14 +73,12 @@ const Ripple: React.FC<RippleProps> = ({ style, onTap, children }) => {
   });
 
   return (
-    <View ref={aRef} style={style}>
-      <GestureDetector gesture={tapGesture}>
-        <Animated.View style={[style, { overflow: 'hidden' }]}>
-          <View>{children}</View>
-          <Animated.View style={rStyle} />
-        </Animated.View>
-      </GestureDetector>
-    </View>
+    <GestureDetector gesture={tapGesture}>
+      <Animated.View ref={aRef} style={[style, { overflow: 'hidden' }]}>
+        {children}
+        <Animated.View style={rStyle} />
+      </Animated.View>
+    </GestureDetector>
   );
 };
 
