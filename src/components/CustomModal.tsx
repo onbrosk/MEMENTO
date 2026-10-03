@@ -14,7 +14,7 @@ const CustomModal = ({ modalVisible = false, setModalVisible, children }: ModalP
 
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent
       visible={modalVisible}
       onRequestClose={() => setModalVisible(false)}
