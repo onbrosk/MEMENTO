@@ -8,6 +8,7 @@ export default function Layout() {
       <StatusBar style='auto' />
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false, presentation: 'modal' }} />
+        <Stack.Screen name="(modals)" options={{ headerShown: false }} />
       </Stack>
     </GestureHandlerRootView>
   );
