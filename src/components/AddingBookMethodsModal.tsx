@@ -27,7 +27,7 @@ const AddingBookMethodsModal = ({ modalVisible, setModalVisible }: ModalProps) =
         <Keyboard width={25} height={25} fill={theme.text} />
         <Text style={{ color: theme.text }}>input</Text>
       </Ripple>
-      <Link href="/searchOnline">
+      <Link href="/searchOnline" onPress={() => { setModalVisible(false) }}>
         <Ripple style={[styles.button]}>
           <Search width={25} height={25} stroke={theme.text} />
           <Text style={{ color: theme.text }}>Search online</Text>
